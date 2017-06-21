@@ -1,0 +1,67 @@
+<style type="text/css">
+		
+	.moduloCliente{
+		display: inline-block;
+		cursor: pointer;
+		/*border: solid;*/
+		border-color: blue;
+		padding: 20px;
+	}
+
+	.divIcono{
+		font-size: 40px;
+		padding: 10px;
+		text-align: center;
+		color:#4EA291;
+	}
+
+	.divNombre{
+
+		font-size: 35px;
+		padding: 10px;
+		text-align: center;
+		color:#3C5651
+	}
+
+	.divCantidad{
+
+		display: inline-block;
+		font-size: 35px;
+		padding: 10px;
+		text-align: center;
+		color:white;		
+		background: black;
+		border-radius: 50%;		
+		border-width: 3px;
+
+
+	}
+
+</style>
+
+<div ng-controller="VerSolicitudesClientesCtrl" class="container">
+	<div ng-repeat="cliente in clientes" ng-click="VerSolicitudesDeCliente(cliente.iId)">
+		<div class="col-sm-4  moduloCliente" >
+			<!-- Apply any bg-* class to to the info-box to color it -->
+		<div class="info-box bg-blue">
+		  <span class="info-box-icon"><i class="fa fa-user-o"></i></span>
+		  <div class="info-box-content">
+		    <span class="info-box-text">{{cliente.sDescripcion}}</span>
+		    <span class="info-box-number">{{cliente.iCantidadSolicitudesPendientes}} solicitudes</span>
+		    <!-- The progress section is optional -->
+		    <div class="progress">
+		      <div class="progress-bar" style="width: 100%"></div>
+		    </div>
+		    <span class="progress-description">
+		      Por responder
+		    </span>
+		  </div><!-- /.info-box-content -->
+		</div><!-- /.info-box -->
+		</div>
+	</div>
+</div>
+
+
+
+
+

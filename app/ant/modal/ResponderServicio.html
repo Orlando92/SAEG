@@ -1,0 +1,120 @@
+<style>
+    .servicio{
+        padding: 0.5%;
+        cursor: pointer;
+    }
+
+    .servicio>div{
+        border: 1px solid #efefef;
+        border-radius: 5px;
+    }
+
+    #modal-body{
+    }
+
+    .tablaNuevosAntecedentes td{
+
+    border: #bed533 solid 1px !important;
+
+
+    }
+
+</style>
+
+
+<div class="modal-content container-fluid">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-title">
+        </h4>
+    </div>
+    <div class="modal-body" id="modal-body">  
+        <div class="row">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="tieneAntecedentes" class="col-sm-3 control-label">
+                        ¿Tiene antecedentes?
+                    </label>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="tieneAntecedentes" ng-model="formulario.tieneAntecedentes" ng-disabled="informacionesAnteriores.length > 0" ng-options="o.v as o.n for o in [{ n: 'No', v: false }, { n: 'Sí', v: true }]">
+                        </select>
+                    </div>
+                </div>                
+            </form>             
+        </div>
+        <div class="row" ng-show="informacionesAnteriores.length > 0">            
+        </div>
+        <div class="row" ng-show="formulario.tieneAntecedentes">
+            <form class="form-horizontal" id="formCamposServicio">
+                <div ng-repeat="campo in servicioCampos" class="form-group">
+                    <label for="{{campo.iId}}" class="col-sm-3 control-label">
+                        {{campo.sDescripcion}}
+                    </label>
+                    <div class="col-sm-9">
+                        <input class="form-control" id="{{campo.iId}}"  ng-model="formulario.servicio[campo.iId]" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fecha" class="col-sm-3 control-label">
+                        Fecha: 
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="date" class="form-control" id="fecha" name="" ng-model="formulario.dFecha">
+                    </div>
+                </div> 
+                <div style="text-align: right;">
+                    <button class="btn btn-primary" ng-click="eventos.agregarInformacion(formulario.servicio, formulario.dFecha)">
+                        Agregar 
+                    </button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="row" style="max-height: 200px; overflow-y: scroll;">
+            <table ng-repeat="dato in formulario.antecedentesIngresados | reverse" class="table table-bordered tablaNuevosAntecedentes">
+                <tr>
+                    <td style="width: 20%; font-weight: bold; color: #597974;">
+                        Fecha:
+                    </td>
+                    <td>
+                        {{dato.dFecha | date: 'dd/MM/yyyy'}}
+                    </td>
+                </tr>
+                <tr ng-repeat="campoServicio in dato.camposServicio">
+                    <td style="width: 20%;font-weight: bold; color: #597974;">
+                       {{campoServicio.sDescripcion}} 
+                    </td>
+                    <td>
+                        {{campoServicio.sValor}}
+                    </td>
+                </tr>                 
+            </table> 
+            <table ng-repeat="dato in informacionesAnteriores | orderBy: '-dFecha'" class="table table-bordered tablaNuevosAntecedentes">
+                <tr>
+                    <td style="width: 20%; font-weight: bold; color: #597974;">
+                        Fecha:
+                    </td>
+                    <td>
+                        {{dato.dFecha | date: 'dd/MM/yyyy'}}
+                    </td>
+                </tr>
+                <tr ng-repeat="campoServicio in dato.camposServicio">
+                    <td style="width: 20%;font-weight: bold; color: #597974;">
+                       {{campoServicio.sDescripcion}} 
+                    </td>
+                    <td>
+                        {{campoServicio.sValor}}
+                    </td>
+                </tr>                 
+            </table>           
+        </div>
+        <hr>
+        <div class="row" style="text-align: right;">
+            <button class="btn btn-success" ng-click="eventos.manejarEventoGuardarRespuesta(formulario.antecedentesIngresados)">
+                Guardar
+            </button>
+            <button class="btn btn-danger" ng-click="close()">
+                Cancelar
+            </button>
+        </div>
+    </div>
+</div>

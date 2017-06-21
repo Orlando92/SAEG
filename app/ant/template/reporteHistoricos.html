@@ -1,0 +1,127 @@
+<style>
+
+  .dni::-webkit-outer-spin-button,
+  .dni::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  .form-group.has-success .form-control{
+    border-color: #d2d6de;
+    color: black;
+  }
+
+   .form-group.has-success label {
+    color: #333;
+  }
+  .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+</style>
+
+<div class="box box-primary">
+
+	<div class="box-body">
+		<div ng-controller = "ReporteHistoricosCtrl">
+
+      <!--Controles -->
+			<form class="form-horizontal">
+
+        <!-- ********** Grupo 1 *********** -->
+				<div class="form-group">
+
+					<div class="col-sm-2">
+						<label class="control-label" for="clientes">
+							Cliente:
+						</label>
+					</div>
+					<div class="col-sm-4">
+						<select class="form-control"  ng-model="iIdClienteSeleccionado" ng-options="v.iId as v.sDescripcion for v in clientes" id="clientes" ng-change="GenerarReporteHistorico()">
+							<option value="">-- seleccione --</option>
+						</select>
+					</div>
+
+          <div class="col-sm-2">
+						<label class="control-label" for="dni">
+							DNI:
+						</label>
+					</div>
+        	<div class="col-sm-4">
+            <input type="text" id="dni" class="form-control dni"
+            ng-model="formulario.sDni" ng-change="borrarApellidosYNombres()" ng-disabled="formulario.sApellidoPaterno.length + formulario.sApellidoMaterno.length + formulario.sNombres.length > 0">
+          </div>
+
+				</div> <!-- fin grupo 1 -->
+
+        <!-- ********** Grupo 2 *********** -->
+        <div class="form-group">
+
+          <div class="col-sm-2">
+						<label class="control-label" for="apPaterno">
+							Apellido Paterno:
+						</label>
+					</div>
+        	<div class="col-sm-4">
+            <input type="text" class="form-control" id="apPaterno" ng-change="borrarDni()" ng-model="formulario.sApellidoPaterno" ng-disabled="formulario.sDni > 0">
+          </div>
+
+					<div class="col-sm-2">
+						<label class="control-label" for="apMaterno">
+							Apellido Materno:
+						</label>
+					</div>
+    			<div class="col-sm-4">
+            <input type="text" class="form-control" id="apMaterno" ng-change="borrarDni()" ng-model="formulario.sApellidoMaterno" ng-disabled="formulario.sDni > 0">
+          </div>
+
+
+        </div> <!-- fin grupo 2 -->
+
+
+        <!-- ********** Grupo 3 *********** -->
+        <div class="form-group">
+
+          <div class="col-sm-2">
+						<label class="control-label" for="nombres">
+							Nombres:
+						</label>
+					</div>
+    			<div class="col-sm-4">
+            <input type="text" id="nombres" ng-change="borrarDni()" class="form-control" ng-model="formulario.sNombres" ng-disabled="formulario.sDni > 0">
+          </div>
+
+          <div class="col-sm-3 clearfix">
+
+          </div>
+          <div class="col-sm-3 clearfix">
+            <input type="submit" class="btn btn-primary pull-right" value="Generar" ng-click="GenerarReporteHistorico()">
+          <!-- </div>
+          <div class="col-sm-3 clearfix"> &nbsp; -->
+
+            <button class="btn btn-info pull-right" ng-click="exportarExcel()">Exportar</button>
+          </div>
+
+        </div> <!-- fin grupo 3 -->
+
+			</form>
+
+
+
+			<div>
+     	  <div  ui-grid="datasource" ui-grid-auto-fit-columns ui-grid-pagination class="grid"
+		          ui-grid-move-columns
+		          ui-grid-cellnav
+		          >
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,19 @@
+<div class="box box-primary">
+	<div  ng-controller="SolicitudesPendientesCtrl" class="box-body">
+		<div>
+		    <div class="col-sm-10">
+			    <h3 class="box-title"> Solicitudes pendientes </h3>	
+		    </div>
+    		<div class="col-sm-2 clearfix">
+    			<button class="btn btn-info pull-right" ng-click="exportarExcel()">Exportar</button>
+    		</div>	
+			<div class="col-sm-12">	
+		       	<div id="grid" ui-grid="datasource" ui-grid-auto-fit-columns ui-grid-pagination class="grid" 
+		          ui-grid-move-columns 
+		          ui-grid-cellnav 
+		          >
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

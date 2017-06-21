@@ -1,0 +1,15 @@
+<div>
+	<button ng-class="{'btn btn-success' : !mostrarSolicitud, 'btn btn-danger': mostrarSolicitud}" ng-click="mostrarOcultarSolicitud()">
+		{{nombreBtnSolicitud}}
+	</button>
+</div>
+<hr>
+<div ng-show="mostrarSolicitud">
+	<solicituddirective>
+		
+	</solicituddirective>
+</div>
+<solicitudespendientesdir></solicitudespendientesdir>
+
+
+	

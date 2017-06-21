@@ -1,0 +1,28 @@
+
+<div class="modal-content container-fluid">
+    <div class="modal-header">
+        <div class="modal-title" id="modal-title">           
+            <span></span>
+            Responder Solicitud :: {{documento}}
+            <h4>
+                <span class="fechaA">Código : {{codigo}}</span>
+            </h4>
+            <h4>
+                <span class="fechaA">Persona : {{persona}} </span>
+            </h4>            
+        </div>
+        
+    </div>
+    <div class="modal-body row" id="modal-body">      
+        <h5>
+            <span class="fechaA">Seleccione el archivo a subir. </span>
+        </h5>  
+        <input multiple file-name-changed="fileSelect($fileSelected)" type="file" accept="application/pdf" name="file-6[]" id="file-6" class="inputfile inputfile-6" data-multiple-caption="{count} files selected" multiple />
+        <label for="file-6"><span> {{ ruta }}</span> <strong><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"></svg> Buscar archivo&hellip;</strong></label>
+
+        <button class="btn btn-primary" ng-click="cargarArchivo()">Cargar registros</button>
+
+        <button class="btn btn-danger" ng-click="cancel()">Cancelar</button>
+
+    </div>
+</div>

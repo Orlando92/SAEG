@@ -1,0 +1,47 @@
+<style>
+	.servicio{
+		padding: 0.5%;
+    	cursor: pointer;
+        
+	}
+
+    .servicio>div{
+        border: solid 1px blue;
+        border-radius: 3px;
+    }
+
+	#modal-body{
+	}
+</style>
+
+
+<div class="modal-content container-fluid">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-title">
+            Responder solicitud 
+			<br>
+            Persona a buscar: {{datosSolicitud.sPersona}}
+            <br>
+            Para el cliente {{datosSolicitud.sDescripcion}}
+            <h4>
+            	<span class="fechaA">Registrado el {{ datosSolicitud.dFechaPedido | date: 'dd/MM/yyy'}}</span>
+            </h4>
+        </h4>
+    </div>
+    <div class="modal-body row" id="modal-body">        
+        <div class="col-sm-4 servicio" ng-repeat="servicio in servicios" ng-click="eventos.manejarResponderServicio(servicio)">
+            <table class="table table-bordered" style="text-align: center;">
+                <tr style="background: blue; color:white;">
+                	<td>
+                	{{servicio.sDescripcionServicio}} 
+                	</td>                    
+                </tr>
+                <tr>
+                    <td>
+                        <small ng-if="servicio.iExiste">Respondido</small><small ng-if="!servicio.iExiste">No Respondido</small>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

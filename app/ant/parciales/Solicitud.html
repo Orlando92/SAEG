@@ -1,0 +1,88 @@
+<style type="text/css">
+	.dni::-webkit-outer-spin-button,
+	.dni::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+	}
+
+	.form-group.has-success .form-control{
+		border-color: #d2d6de;
+		color: black;
+	}
+
+	 .form-group.has-success label {
+		color: #333;
+	}
+
+</style>
+
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<div class="col-sm-10">
+					<h3 class="box-title">Solicitudes Respondidas</h3>
+				</div>
+				<div class="col-sm-2 clear-fix">
+					<button class="btn btn-info pull-right" ng-click="exportarExcel()">Exportar</button>
+				</div>
+			</div>
+			<div class="box-body">
+				<form class="form-horizontal" novalidate>
+					<div class="col-sm-5">
+						<div class="form-group">
+							<label for="dni" class="control-label col-sm-5">
+								DNI:
+							</label>
+							<div class="col-sm-7">
+								<input type="number" id="dni" class="form-control"
+								ng-model="formulario.sDni" ng-change="borrarApellidosYNombres()" ng-disabled="formulario.sApellidoPaterno.length + formulario.sApellidoMaterno.length + formulario.sNombres.length > 0">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="apPaterno" class="control-label col-sm-5">
+								Apellido paterno:
+							</label>
+							<div class="col-sm-7">
+								<input type="text" id="apPaterno" class="form-control" ng-change="borrarDni()" ng-model="formulario.sApellidoPaterno" ng-disabled="formulario.sDni > 0">
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-5">
+						<div class="form-group">
+							<label for="nombres" class="control-label col-sm-5">
+								Nombres:
+							</label>
+							<div class="col-sm-7">
+								<input type="text" id="nombres" ng-change="borrarDni()" class="form-control" ng-model="formulario.sNombres" ng-disabled="formulario.sDni > 0">
+							</div>
+						</div>					
+
+						<div class="form-group">
+							<label for="apMaterno" class="control-label col-sm-5">
+								Apellido materno:
+							</label>
+							<div class="col-sm-7">
+								<input type="text" id="apMaterno" ng-change="borrarDni()" class="form-control" ng-model="formulario.sApellidoMaterno" ng-disabled="formulario.sDni > 0">
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-2 clear-fix">
+						<input type="submit" class="btn btn-success" value="Buscar" ng-click="buscar(formulario)">
+					</div>
+				</form>
+				<div style="margin-top: 10px;">
+					<div class="col-sm-12">
+				       	<div  ui-grid="datasource" ui-grid-auto-fit-columns ui-grid-pagination class="grid"
+				          ui-grid-move-columns
+				          ui-grid-cellnav
+				          >
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

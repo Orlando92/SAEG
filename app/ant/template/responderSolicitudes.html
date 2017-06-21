@@ -1,0 +1,33 @@
+<div class="box box-primary">
+	
+	<div class="box-body">
+		<div ng-controller = "ResponderSolicitudesCtrl">
+
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="clientes">
+						Escoja el cliente:
+					</label>
+					<div class="col-sm-5">
+						<select class="form-control" ng-change="FiltrarSolicitudesPorCliente(iIdClienteSeleccionado);" ng-model="iIdClienteSeleccionado" ng-options="v.iId as v.sDescripcion for v in clientes">
+							<option value="">-- seleccione --</option>
+						</select>
+					</div>
+					<div class="col-sm-4 clearfix">
+						<button class="btn btn-info pull-right" ng-click="exportarExcel()">Exportar</button>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div>	
+		       	<div  ui-grid="datasource" ui-grid-auto-fit-columns ui-grid-pagination class="grid" 
+		          ui-grid-move-columns 
+		          ui-grid-cellnav 
+		          >
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

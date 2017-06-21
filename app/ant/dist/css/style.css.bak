@@ -1,0 +1,8 @@
+.etiqueta {
+	color: #6A6E76;
+	font-weight: bold;
+}
+
+.grid-align {
+    text-align: center;
+}
