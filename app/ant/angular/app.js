@@ -105,7 +105,7 @@ app.controller('mainCtrl', ['$scope','$rootScope','$uibModal', 'Configuracion','
 
 	    if ($scope.sTipoUsuario == 'Cliente') {
 
-	    	$location.path('/GenerarSolicitudPersonal')
+	    	$location.path('/Inicio');
 
 	    }
 

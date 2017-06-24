@@ -5,7 +5,10 @@
 
 <!DOCTYPE html>
 <html ng-app="loginApp" ng-controller="mainCtrl">
-  <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+     <meta charset="UTF-8">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Saeg System | Login</title>
@@ -23,9 +26,9 @@
     <link rel="stylesheet" href="AdminLTE.min.css">
 
 
-	<script src="angular/lib/angular.min.js"></script>
-	<script src="angular/app.js"></script>
-	<script src="angular/servicios/login_service.js"></script>
+  <script src="angular/lib/angular.min.js"></script>
+  <script src="angular/app.js"></script>
+  <script src="angular/servicios/login_service.js"></script>
 
 
   <!-- SweetAlert -->
@@ -53,7 +56,16 @@
        }
 
        .bk {
-         background-image: url("img/fondo1.jpg");
+         background-image: url("img/SAEG5.jpg"); 
+         background-repeat: no-repeat;
+         background-attachment: fixed;
+         background-position: top;
+
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
 
        }
 
@@ -70,10 +82,15 @@
          opacity: 0.7;
          border-radius: 10px;
        }*/
+       
+       .login-box{
+           
+           width: 350px;
+       }
     </style>
   </head>
 
-  <body class="hold-transition bk "> <!--login-page
+  <body class="hold-transition bk"> <!--login-page
 
       <img src="fondo1.jpg" class="img-fluid img-thumbnail rounded mx-auto d-block fondo" />-->
 
@@ -81,10 +98,15 @@
     <div class="login-box">
       <div class="login-logo  ">
 
-        <a href=""><b>SAEG</b> System</a>
-
+        <a href="">
+            <img src="img/cropped-LOGO-SAEG-INVESTIGATION-2017-5.png" style="height: 130px;" />
+        </a>
+        
       </div><!-- /.login-logo -->
-
+    
+    
+    
+    <br>
 
       <div class="login-box-body caja">
 
@@ -95,11 +117,11 @@
           <div class="form-group has-feedback">
 
             <input type="text"
-            	   class="form-control"
-            	   placeholder="Usuario"
-            	   name="usuario"
-            	   required="required"
-            	   ng-model="datos.usuario">
+                 class="form-control"
+                 placeholder="Usuario"
+                 name="usuario"
+                 required="required"
+                 ng-model="datos.usuario">
 
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
@@ -110,7 +132,7 @@
                    placeholder="Contraseña"
                    name="password"
                    required="required"
-            	   ng-model="datos.password">
+                 ng-model="datos.password">
 
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
@@ -118,21 +140,21 @@
           <div class="row">
             <div class="col-xs-12">
               <button type="submit"
-              		  class="btn btn-primary btn-block btn-flat"
-              		  ng-disabled="forma.$invalid || cargando">Ingresar</button>
+                    class="btn btn-primary btn-block btn-flat"
+                    ng-disabled="forma.$invalid || cargando">Ingresar</button>
             </div><!-- /.col -->
           </div>
 
 
-		<div class="row" ng-show="invalido">
-			<div class="col-md-12">
-				<br>
-				<div class="alert alert-danger">
-					<strong>Verificar!</strong>
-					{{ mensaje }}
-				</div>
-			</div>
-		</div>
+    <div class="row" ng-show="invalido">
+      <div class="col-md-12">
+        <br>
+        <div class="alert alert-danger">
+          <strong>Verificar!</strong>
+          {{ mensaje }}
+        </div>
+      </div>
+    </div>
 
 
 

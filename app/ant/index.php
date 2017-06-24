@@ -19,11 +19,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="angular/lib/ionicons-2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+    <!-- AdminLTE Skins. We have chosen the skin-    for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.
     -->
-    <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+    <link rel="stylesheet" href="dist/css/skins/skin-yellow.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -149,7 +149,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 
-  <body class="hold-transition skin-blue sidebar-mini">
+  <body class="hold-transition skin-yellow sidebar-mini">
     <div class="wrapper">
 
       <!-- Main Header -->
@@ -158,9 +158,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Logo -->
         <a href="#/Inicio" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>{{ config.iniciales[0] }}</b>{{ config.iniciales | quitarletra }}</span>
+          <span class="logo-mini"><img src="dist/img/cropped-LOGO-SAEG-INVESTIGATION-2017-5.png" style="height: 20px;"/></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b> {{ config.aplicativo }} </b>{{ config.iniciales }}</span>
+          <span class="logo-lg" style="font-family: 'Segoe UI'; font-size: 1.7rem;"><img src="dist/img/cropped-LOGO-SAEG-INVESTIGATION-2017-5.png" style="height: 25px;"/> Saeg System 1.1</span>
         </a>
 
         <!-- Header Navbar -->
@@ -196,6 +196,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Left side column. contains the logo and sidebar -->
       <aside class="main-sidebar"
           ng-include="'template/menu.html'">
+          
       </aside>
 
       <!-- Content Wrapper. Contains page content -->

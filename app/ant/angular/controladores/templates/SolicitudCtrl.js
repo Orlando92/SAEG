@@ -97,7 +97,7 @@ app.controller('SolicitudCtrl',['$scope','$rootScope','Solicitudes','Servicios',
 			i++;
 		}
 
-		serviciosInclusivos[2].push({iId: 0, sDescripcion: "Básico"});
+		serviciosInclusivos[2].push({iId: 0, sDescripcion: "Antecedentes 1"});
 	};
 
 	var encuentraObjeto = function(servicios, objeto){
@@ -107,7 +107,7 @@ app.controller('SolicitudCtrl',['$scope','$rootScope','Solicitudes','Servicios',
 			if (servicios[i].iId == objeto.iId) {
 
 				return true;
-
+				
 			}
 			
 		}

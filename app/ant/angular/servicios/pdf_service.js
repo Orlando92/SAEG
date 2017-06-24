@@ -1,4 +1,6 @@
 app.factory('PDF', ['', function(){
+
+	var urlImagenes = 'archivos/imagenes/';
 	
 	var tablaRespuesta = {
 		columns: [], 
@@ -15,13 +17,21 @@ app.factory('PDF', ['', function(){
 
 	};
 
-	var imgUrl = '';
+	var imgUrl = urlImagenes;
 
-	var logoUrl = '';
+	var logoUrl = 'dist/img/logoSaeg.png';
+
+	var confidencial = 'CONFIDENCIAL';
+
+	var fechaPedido = '01-01-2017';
 
 	var titulo = '';
 
 	var self = {
+
+		agregarFechaPedido: function(fechaPedido){
+			fechaPedido = fechaPedido;
+		}
 
 		llenarHeaderTablaRespuesta: function(columnas){
 
@@ -33,9 +43,9 @@ app.factory('PDF', ['', function(){
 			tablaRespuesta.rows = rows;
 		},
 
-		agregarImagen: function(imgUrl){
+		agregarImagen: function(nombreImagen){
 
-			imgData = imgUrl;
+			imgUrl += nombreImagen+'.jpg';
 		},
 
 		agregarAntecedente: function(antecedente){
@@ -43,11 +53,18 @@ app.factory('PDF', ['', function(){
 			antecedentes.push(antecedente);
 		}, 
 
-		crearPdf: function(){
+		crearPdf: function(){	
+
+			pdf = new jsPDF();
+
+			/* Agregando el header */
+			header = '<header><div style="width: 20%"><img src="'+logoUrl+'"/></div><div style="width: 80%; text-align:right"><div>'+confidencial+'</div><br><div>'+fechaPedido+'</div></div></header>'
+
 
 			
-			
-		}
+		}, 
+
+
 
 
 

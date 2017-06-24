@@ -1,6 +1,55 @@
+
+<style>
+    .solicitudes{
+        border: 1px solid #1b6b4e;
+    }
+
+    .solicitudes>li>a{
+        color: white;
+    }
+</style>
 <div ng-show="$parent.usuario.iIdTipoUsuario == 5">
 	<solicitudesclientesdirective></solicitudesclientesdirective>
 </div>
-<div ng-show="">
+<div ng-hide="$parent.usuario.iIdTipoUsuario == 5">
+    <div class="col-md-4" style="text-align:center;">
+        <img src="dist/img/senor.png" style="height: 400px;"/>
+    </div>
+    
+    <div class="col-md-6 col-md-offset-1" style="text-align:center;">
+        <br>
+        <br>
+        <h3 style="font-weight: bold;">
+            Bienvenido a SAEG SYSTEM 1.1
+        </h3>
+        <br>
+        <br>
+        <div style="text-align:justify; font-size: 1.5rem;">
+        <p>
+            A través de nuestro sofisticado sistema, podemos interactuar rápidamente de manera precisa y sin contratiempos de ningún tipo debido a que la información que se carga en el sistema esta almacenada en la nube, logrando con ello, 
+            tener información segura por un periodo de tiempo prolongado. 
+        </p>
+        <p>
+            A través de SAEG SYSTEM recibiremos sus pedidos de diversas maneras (solicitudes individuales o masivas), respondiendo rápida y oportunamente a sus solicitudes, cumpliendo así con los estándares rigurosos de eficiencia y calidad. 
 
+        </p>
+        </div>
+        <br>
+        <br>
+        <div class="col-lg-6"  style="padding: 3px;">
+        	<a class="btn btn-success" href="#/VerSolicitudesRespondidas">Solicitudes respondidas</a>
+        </div> 
+        <div class="col-lg-6" style="padding: 3px;">
+        	<div class="btn-group">
+        		<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&nbsp; &nbsp;Registrar Solicitud &nbsp; <span class="caret"></span></button>
+		        <ul class="dropdown-menu solicitudes" style="background-color: #6ec88d;">
+				    <li><a href="#/GenerarSolicitudPersonal">Registro Individual</a></li>
+				    <li><a href="#/GenerarSolicitudMasivo">Registro Masivo  </a></li>
+			  	</ul>
+        	</div>        	
+        </div>      
+        
+    </div>
+
+    
 </div>
